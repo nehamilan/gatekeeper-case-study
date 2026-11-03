@@ -44,8 +44,8 @@ The reviewer then approves, edits, rejects, or escalates that recommendation. No
 ```
 Submitted request
    -> retrieve and verify policy + dataset catalog versions
-   -> deterministic checks (ethics, approved fields, use category, sensitivity tier, governance flag)
-   -> fixed overrides (identifiable-tier fields; Indigenous-governance datasets -> always escalate)
+   -> deterministic checks 
+   -> fixed safety overrides (always escalate)
    -> LLM judgment, only for what no rule can resolve
    -> review packet
    -> human reviewer decides
