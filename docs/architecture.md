@@ -9,7 +9,7 @@ flowchart TD
     A[Researcher submits request<br/>status: Submitted] --> B[Gatekeeper retrieves policy<br/>and dataset catalog versions]
     B --> C{Versions retrieved<br/>and verified?}
     C -- No --> X[Stop. No assessment.<br/>Recommend escalate:<br/>context-verification failure]
-    C -- Yes --> D[Deterministic checks<br/>ethics, approved fields,<br/>use category, sensitivity tier,<br/>governance flag]
+    C -- Yes --> D[Deterministic checks]
     D --> E{Fixed override?<br/>identifiable-tier fields or<br/>Indigenous-governance dataset}
     E -- Yes --> F[Recommend escalate.<br/>Packet names the rule.]
     E -- No --> G{Any criterion unresolved<br/>by rules?}
@@ -42,20 +42,9 @@ stateDiagram-v2
 
 "Reject" is a reviewer action in the interface that rejects Gatekeeper's recommendation, not the researcher's request. The reviewer then chooses one of the three routes.
 
-## Components
-
-| Component | Role |
-|---|---|
-| Versioned policy and dataset catalog | Synthetic files that stand in for the trust's rules and datasets. Each carries a version identifier. |
-| Deterministic checker | Plain rules, no model call. Retrieves and verifies versions, runs the checkable criteria and the two fixed overrides. |
-| LLM judgment layer | Runs only for criteria the checker cannot resolve. Returns a bounded judgment with evidence, or explicit uncertainty. |
-| Review packet renderer | One fixed template for every request. Reuses results already computed and runs no second assessment. |
-| Reviewer interface | Queue, split-view case page, decision card. Every control is real and working. |
-| Audit log | Append-only. Records inputs, versions, check results, model reasoning, packet, status changes, reviewer action, and any override reason. |
-
 ## Memory
 
-Memory is scoped to a single request: which criteria passed, failed, or remain unresolved. After a clarification, Gatekeeper re-checks only the unresolved criteria and shows what changed. The audit log is for human retrieval and is never used as context for another request. No researcher or institution history is used.
+memory is limited to one request, and no researcher or institution history is used.
 
 ## Boundaries
 
