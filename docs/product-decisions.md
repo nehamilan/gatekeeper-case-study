@@ -4,7 +4,7 @@ The main decisions behind Gatekeeper, with the reasoning and the trade-off accep
 
 ## 1. Deterministic checks first, LLM only for judgment
 
-**Decision.** Anything a lookup can resolve (ethics documentation present, fields on the approved list, use category approved, sensitivity tier, governance flag) is checked by plain code. The LLM sees only what rules cannot resolve: whether requested fields fit the stated purpose, whether the purpose is ambiguous, and whether the use is novel.
+**Decision.** Anything a lookup can resolve is checked by plain code. The LLM sees only what rules cannot resolve: whether requested fields fit the stated purpose, whether the purpose is ambiguous, and whether the use is novel.
 
 **Why.** Rule-checkable criteria should behave the same every time and be testable without a model. It also keeps the model's job small and its output easy to verify.
 
@@ -68,7 +68,7 @@ The main decisions behind Gatekeeper, with the reasoning and the trade-off accep
 
 ## 10. Reviewer-triggered re-run
 
-**Decision.** Re-run Gatekeeper is something a reviewer chooses, for example after a researcher replies or a missing version becomes retrievable. It is not an intake trigger. The rerun re-checks only unresolved criteria and shows what changed. It never changes an already actioned outcome, and it writes a separate audit entry with the reason and old and new versions.
+**Decision.** A reviewer can re-run Gatekeeper, and it never changes an outcome that has already been actioned.
 
 ## 11. A periodic quality pass, not a real-time second agent
 
