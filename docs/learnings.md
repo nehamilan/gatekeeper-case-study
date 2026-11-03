@@ -12,4 +12,4 @@
 
 **6. Ordinary interface choices carry safety weight.** Reviewing the queue and decision card showed how much layout affects the human checkpoint. Active filters need a visible state, a fixed-rule escalation needs a distinct tag from a system failure, and a decision card should not pre-select an action, because a default invites clicking through.
 
-**7. Say what is not measured.** The prototype's model-dependent checks have not been run against a real model in this write-up. I would rather publish that than publish a pass rate I have not earned.
+**7. Say what is not measured.** The prototype's model-dependent checks have been run with a real model. I would rather publish that than publish a pass rate I have not earned.
