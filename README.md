@@ -81,7 +81,7 @@ See [docs/learnings.md](docs/learnings.md).
 
 ## What is next
 
-A periodic quality-review pass that analyzes override patterns across the audit log to check Gatekeeper's calibration, run offline and reported to humans. I rejected a real-time second reviewer agent for the first version. The reasoning is in the decision log.
+A periodic quality-review pass that analyzes reviewer overrides and recurring policy conflicts across the audit log. It checks Gatekeeper’s calibration and flags places where the policy or the process, not the model, may be the underlying problem. It runs offline and is reported to humans, who decide what to change. I rejected a real-time second reviewer agent for the first version. The reasoning is in the decision log.
 
 ---
 
